@@ -1,2 +1,2 @@
 # Mini-project
-sentiment analysis 
+sentiment analysis  on Alexa reviews 
