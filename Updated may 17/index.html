@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amazon Review Sentiment Analysis</title>
+  </head>
+  <body>
+    <form id="review-form">
+      <label for="review">Enter your review:</label><br>
+      <textarea id="review" name="review"></textarea><br>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+    <script>
+      const form = document.getElementById('review-form');
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch('/predict', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.text();
+        document.getElementById('result').textContent = result;
+      });
+    </script>
+  </body>
+</html>
